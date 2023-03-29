@@ -1,0 +1,1742 @@
+:root{
+    --blue : #317AC1;
+    --darkBlue : #384454;
+    --yellow : #E1A624;
+    --grey : #D4D3DC;
+    --bronze : #AD956B;
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Satoshi', sans-serif;
+    box-sizing: border-box;
+    
+    list-style: none;
+}
+
+body {
+    background-color: #fff;
+}
+
+.sidebar {
+    background-color: #384454;
+    position: fixed;
+    width: 80px;
+    height: 100%;
+    border-left: #384454 0.65rem solid;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.sidebar.active {
+
+    width: 250px ;
+
+}
+
+
+.sidebar ul {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 8rem;
+    padding-inline-start: 12px;
+
+
+}
+
+.sidebar ul li{
+
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    
+}
+
+.sidebar ul li:hover,
+.sidebar ul li.hovered{
+    background-color: #fff;
+    
+}
+
+/* .sidebar ul li:nth-child(1) */
+
+.sidebar ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+}
+
+.sidebar ul li:hover a, 
+.sidebar ul li.hovered a {
+    color: #384454;
+}
+
+.sidebar ul li a .icon{ 
+
+    position: relative;
+    display: block;
+    max-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+
+}
+
+.sidebar ul li a .icon .fa-solid{
+    font-size: 1rem;
+    padding: 10px;
+    font-weight: 700;
+}
+
+.sidebar ul li a .title {
+    position: relative;
+    display: block;
+    padding: 0 30px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+    font-weight: 550;
+}
+
+/* ------------courve outside ------------ */
+
+.sidebar ul li:hover a::before, 
+.sidebar ul li.hovered a::before{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px #fff;
+    pointer-events: none;
+}
+
+.sidebar ul li:hover a::after, 
+.sidebar ul li.hovered a::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px #fff;
+    pointer-events: none;
+}
+
+
+
+
+
+
+
+
+/* µµµµµµµµµµµµµµµµµµµ */
+
+#logo {
+    font-size: 1.50rem;
+    font-weight: 600;
+    margin-top: 25px;
+    color: #fff;
+    position: relative;
+    user-select: none;
+    user-select: none;
+    
+}
+/* #logo::after{
+    content: '';
+    width: 7.875rem;
+    height: 0.190rem;
+    border-radius: 3px;
+    background: #fff;
+    position: absolute;
+    bottom: -25px;
+    left: 63PX;
+    
+
+} */
+
+#logo::after .active{
+
+    background: #384454;
+
+}
+
+/* header */
+#content {
+    position: relative;
+    width: calc(100% - 80px);
+    left: 80px;
+    transition: 0.5s;
+}
+
+#content.active{
+    width: calc(100% - 250px);
+    left: 250px;
+
+}
+
+#content nav {
+    height: 78px;
+    background: transparent;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    grid-gap: 24px ;
+    
+}
+
+#content nav .fa-solid {
+
+    cursor: pointer;
+    margin-left: -3px;
+
+}
+
+#title{
+    color: #384454;
+    font-weight: 600;
+    font-size: 20px;
+    /* margin-right: 70%; */
+    width: calc(100% - 220px);
+}
+
+#content nav .notification {
+    margin-right :   -14px;
+    top: 0.15rem;
+    font-size: 20px;
+    position: relative;
+    
+}
+
+.notification i{
+    font-size: 20px;
+    position: relative;
+    color: #384454;
+    /* display: inline-flex; */
+}
+
+#content nav .notification  .num {
+    position: relative;
+    top: -11px;
+    left: -17px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: #fff solid 2px;
+    background: #e94040;
+    color: #e94040;
+    font-weight: 700;
+    font-size: 10px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+#profil {
+    font-size: 20px;
+    position: relative;
+    color: #384454;
+}
+
+#logout{
+    font-size: 20px;
+    position: relative;
+    color: #384454;
+
+}
+
+
+
+/* <!-- *************** drop menu *************** --> */
+
+.menu {
+    position: absolute;
+    top: 3.8rem;
+    right: 8.645rem;
+    background-color: #fff;
+    width: auto;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    border-radius: 0.4rem;
+    transition: 0.5s;
+    z-index: 10;
+    display: block;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+
+}
+.menu h2 {
+    background-color: #3f84c9;
+    padding: .4rem ;
+    font-size: 1.1rem;
+    letter-spacing: 0.0001rem;
+    color: #fff;
+    margin: 0%;
+    border-radius: 0.4rem 0.4rem 0rem 0rem;
+    padding-left: .45rem;
+}
+.ProfileMenu {
+    position: absolute;
+    top: 3.8rem;
+    right: 5.57rem;
+    padding: 10px 20px;
+    background-color: #cecece;
+    width: auto;
+    box-sizing: 0 5px 25px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    transition: 0.5s;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+
+}
+.ProfileMenu::before{
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: 28px;
+    width: 20px;
+    height: 20px;
+    background: #cecece;
+    transform: rotate(45deg);
+}
+
+.menu.active{
+    visibility: visible;
+    /* top: 2rem; */
+    opacity: 1;
+}
+.ProfileMenu.active{
+    visibility: visible;
+    /* top: 2rem; */
+    opacity: 1;
+}
+
+ol,
+ul {
+  padding-left: 0rem;
+}
+
+ol,
+ul,
+dl {
+  margin-top: 0;
+  margin-bottom: 0rem;
+}
+
+.menu::before{
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: 28px;
+    width: 20px;
+    height: 20px;
+    background: #3f84c9;
+    transform: rotate(45deg);
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    z-index: -1;
+
+}
+
+.menu .txt {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    padding: 20px 0;
+    font-weight: 500;
+    font-size: 18px;
+    color: D#555;
+    Line-height: 1.2rem;
+}
+
+.menu h3 span {
+
+    font-size: 14px;
+    color: #cecece;
+    font-weight: 400;
+
+}
+
+.menu h3 span ul li {
+    list-style: none;
+    padding: 10px 0;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    direction: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+
+/* ********************************************************************************* dashboard ********************** */
+.card{
+    color: #384454;
+    border: transparent;
+    border-radius: 20px;
+    background-color: #fff;
+    border-left: #e7e7e7 3px solid;
+    
+}
+
+.desc {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.card-body {
+    margin-top: 1rem;
+}
+
+.dashboard hr{
+    margin: 1rem 0;
+    color: #fff;
+    background-color: #384454;
+    border-radius: 5px;
+    opacity: 1;
+    width: 5rem;
+    height: .28rem;
+    margin-top: 0px;
+  }
+
+.card  p{
+    font-size: 1.4rem;
+    color: #384454;
+    font-weight: 700;
+
+}
+
+.dashboard #ID{
+    font-weight: 600;
+    color: #384454;
+}
+
+.dashboard table{
+    color: #384454;
+}
+
+
+/* ********************************************************************************************************************************Gestion des utilisateur */
+
+
+.users .p-3 {
+    padding: 0rem!important;
+}
+
+.users #all_Btn .btn-group{
+    margin-left: 1.38rem;
+    /* border-radius: 50px; */
+}
+
+.users #all_Btn .btn-group .btn{
+    width: 8rem;
+    background-color: transparent;
+    color: #384454;
+    font-weight: 600;
+    border: transparent;
+    background-color: #fff;
+    border-left: #E1A624 2px solid;
+    border-right: #E1A624 2px solid;
+    border-radius: 2px;
+    height: 2.3rem;
+    /* margin-left: 10px; */
+
+}
+
+
+.users #all_Btn .btn-group .btn:hover{
+
+    background-color: #E1A624;
+    color: #fff;
+    width: 8rem;
+    /* background-color: transparent; */
+    /* color: #384454; */
+    font-weight: 600;
+    border: transparent;
+    /* background-color: #fff; */
+    transition: .5s;
+    border-radius: .5rem;
+    height: 2.3rem;
+
+    /* margin-left: 10px; */
+
+}
+
+
+.users .btn-group-custom {
+    border-radius: 20px;
+}
+
+
+/* ========================================================================================================================User List */
+
+.users #UserList .container .row .col input{
+    height: 2.3rem;
+    color: #384454;
+
+}
+.users #UserList .container .row .col input:focus{
+    box-shadow: none;
+    border: #E1A624 0.5px solid;
+
+}
+
+.users #UserList .container .row .col #searchBtn{
+    /* border-left: #E1A624 solid 2px;
+    border-right: #E1A624 solid 2px; */
+    border: #E1A624 2px solid;
+    /* border-top: transparent; */
+    border-radius: 8px;
+    /* border-bottom: transparent; */
+    color: #E1A624;
+    height: 2.3rem;
+    color: #384454;
+    font-weight: 600;
+
+}
+
+.users #UserList .container .row .col #searchBtn:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+/* ******************************************User Modals */
+
+/* *****adding */
+
+.users #UserList #UsersModal  label{
+    color:#384454;
+
+}
+
+.users #UserList #UsersModal  input, .users #UserList #UsersModal  select{
+    font-size: 15px;
+}
+
+.users #UserList #UsersModal  input:focus , .users #UserList #UsersModal  select:focus{
+    box-shadow: none;
+    border: #E1A624 0.5px solid;
+}
+
+.users #UserList #UsersModal  #saveBtn {
+    border: #E1A624 2px solid;
+    border-top: transparent;
+    border-radius: 8px;
+    border-bottom: transparent;
+    color: #E1A624;
+    height: 2.5rem;
+    color: #fff;
+    font-weight: 450;
+    background-color: #E1A624;
+}
+
+.users #UserList #UsersModal  #saveBtn:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+.users #UserList #UsersModal  #closeBtn{
+    border: #E1A624 2px solid;
+    border-radius: 8px;
+    color: #E1A624;
+    height: 2.5rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+
+.users #UserList #UsersModal #closeBtn:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+.users #UserList #UsersModal  #closeBtn a{
+    /* border: #E1A624 2px solid;
+    border-radius: 8px; */
+    color: #E1A624;
+    height: 2.3rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+.users #UserList #UsersModal #closeBtn:hover a{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+/* *******display data */
+
+.users #UserList #EditUsersModal  label{
+    color:#384454;
+
+}
+
+.users #UserList #EditUsersModal  input, .users #UserList #EditUsersModal  select{
+    font-size: 15px;
+}
+
+.users #UserList #EditUsersModal  input:focus , .users #UserList #EditUsersModal  select:focus{
+    box-shadow: none;
+    border: #E1A624 0.5px solid;
+}
+
+.users #UserList #EditUsersModal  #saveBtn {
+    border: #E1A624 2px solid;
+    border-top: transparent;
+    border-radius: 8px;
+    border-bottom: transparent;
+    color: #E1A624;
+    height: 2.5rem;
+    color: #fff;
+    font-weight: 450;
+    background-color: #E1A624;
+}
+
+.users #UserList #EditUsersModal  #saveBtn:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+.users #UserList #EditUsersModal  #closeBtn{
+    border: #E1A624 2px solid;
+    border-radius: 8px;
+    color: #E1A624;
+    height: 2.5rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+
+.users #UserList #EditUsersModal #closeBtn:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+.users #UserList #EditUsersModal  #closeBtn a{
+    /* border: #E1A624 2px solid;
+    border-radius: 8px; */
+    color: #E1A624;
+    height: 2.3rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+.users #UserList #EditUsersModal #closeBtn:hover a{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+/* ========================================================================================================================Admin List */
+
+
+
+.users #AdminList .container .row .col input{
+    height: 2.3rem;
+    color: #384454;
+
+}
+.users #AdminList .container .row .col input:focus{
+    box-shadow: none;
+    border: #E1A624 0.5px solid;
+
+}
+
+.users #AdminList .container .row .col #searchBtn{
+    /* border-left: #E1A624 solid 2px;
+    border-right: #E1A624 solid 2px; */
+    border: #E1A624 2px solid;
+    /* border-top: transparent; */
+    border-radius: 8px;
+    /* border-bottom: transparent; */
+    color: #E1A624;
+    height: 2.3rem;
+    color: #384454;
+    font-weight: 600;
+
+}
+
+.users #AdminList .container .row .col #searchBtn:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+/* *****add admin modal */
+
+/* *****adding */
+
+
+.users #AdminList #AdminModal  label, .users #AdminList #AdminModal  legend{
+    color:#384454 ;
+
+}
+
+.users #AdminList #AdminModal col input, .users #AdminList #AdminModal col select{
+    font-size: 15px;
+}
+
+.users #AdminList #AdminModal  input:focus , .users #AdminList #AdminModal  select:focus{
+    box-shadow: none;
+    border: #E1A624 0.5px solid;
+}
+
+
+.users #AdminList #AdminModal input[type=radio]:checked{
+    background-color: #E1A624;
+}
+.users #AdminList #AdminModal  #saveBtn {
+    border: #E1A624 2px solid;
+    border-top: transparent;
+    border-radius: 8px;
+    border-bottom: transparent;
+    color: #E1A624;
+    height: 2.5rem;
+    color: #fff;
+    font-weight: 450;
+    background-color: #E1A624;
+}
+
+.users #AdminList #AdminModal  #saveBtn:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+.users #AdminList #AdminModal  #closeBtn{
+    border: #E1A624 2px solid;
+    border-radius: 8px;
+    color: #E1A624;
+    height: 2.5rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+
+.users #AdminList #AdminModal #closeBtn:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+.users #AdminList #AdminModal  #closeBtn a{
+    /* border: #E1A624 2px solid;
+    border-radius: 8px; */
+    color: #E1A624;
+    height: 2.3rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+.users #AdminList #AdminModal #closeBtn:hover a{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+/* *******display data */
+
+.users #AdminList #EditAdminModal  label, .users #AdminList #EditAdminModal  legend{
+    color:#384454 ;
+
+}
+
+.users #AdminList #EditAdminModal col input, .users #AdminList #EditAdminModal col select{
+    font-size: 15px;
+}
+
+.users #AdminList #EditAdminModal  input:focus , .users #AdminList #EditAdminModal  select:focus{
+    box-shadow: none;
+    border: #E1A624 0.5px solid;
+}
+
+.users #AdminList #EditAdminModal  #saveBtn {
+    border: #E1A624 2px solid;
+    border-top: transparent;
+    border-radius: 8px;
+    border-bottom: transparent;
+    color: #E1A624;
+    height: 2.5rem;
+    color: #fff;
+    font-weight: 450;
+    background-color: #E1A624;
+}
+
+.users #AdminList #EditAdminModal  #saveBtn:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+.users #AdminList #EditAdminModal  #closeBtn{
+    border: #E1A624 2px solid;
+    border-radius: 8px;
+    color: #E1A624;
+    height: 2.5rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+
+.users #AdminList #EditAdminModal #closeBtn:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+.users #AdminList #EditAdminModal  #closeBtn a{
+    /* border: #E1A624 2px solid;
+    border-radius: 8px; */
+    color: #E1A624;
+    height: 2.3rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+.users #AdminList #EditAdminModal #closeBtn:hover a{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+.users #AdminList #EditAdminModal input[type=radio]:checked{
+    background-color: #E1A624;
+}
+
+/* ****************** */
+
+.users td {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+/* Change the hover color of a Bootstrap input */
+.users #ajout{
+    border: #E1A624 2px solid;
+    border-top: transparent;
+    border-radius: 8px;
+    border-bottom: transparent;
+    color: #E1A624;
+    height: 2.3rem;
+    color: #fff;
+    font-weight: 450;
+    background-color: #E1A624;
+}
+.users #ajout:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+.users #export{
+    border: #E1A624 2px solid;
+    border-radius: 8px;
+    color: #E1A624;
+    height: 2.3rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+.users #export:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+
+
+/* ******************************************************************************************************************************** Gestion des vehicule */
+.main_vehicule  .card-footer {
+    background-color: #fff;
+}
+
+
+.main_vehicule a  {
+    color: #317AC1;
+    font-weight: 500;
+}
+.main_vehicule a:hover  {
+    color: #E1A624;
+    transition:  .4s;
+}
+
+
+.main_vehicule #exportVehicule{
+    border: #E1A624 2px solid;
+    border-radius: 8px;
+    color: #E1A624;
+    height: 2.3rem;
+    color: #384454;
+    font-weight: 500;
+    background-color: #fff;
+}
+.main_vehicule #exportVehicule:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+}
+.main_vehicule #exportVehicule a{
+
+    color: #384454;
+    font-weight: 500;
+    background-color: #fff;
+}
+.main_vehicule #exportVehicule:hover a{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+}
+
+
+/* ===============================================================lISTE DES VEHICULE --- the other page style --- */
+
+.list_Vehicule #searchInput{
+    height: 2.3rem;
+    color: #384454;
+}
+.list_Vehicule #searchInput:focus{
+    box-shadow: none;
+    border: #E1A624 0.5px solid;
+}
+
+.list_Vehicule #searchBtn{
+    border: #E1A624 2px solid;
+    /* border-top: transparent; */
+    border-radius: 8px;
+    /* border-bottom: transparent; */
+    color: #E1A624;
+    height: 2.3rem;
+    color: #384454;
+    font-weight: 600;
+}
+
+
+.list_Vehicule #searchBtn:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+
+
+.list_Vehicule  #ajout{
+    border: #E1A624 2px solid;
+    border-top: transparent;
+    border-radius: 8px;
+    border-bottom: transparent;
+    color: #E1A624;
+    height: 2.3rem;
+    color: #fff;
+    font-weight: 450;
+    background-color: #E1A624;
+}
+.list_Vehicule  #ajout:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+.list_Vehicule  #export{
+    border: #E1A624 2px solid;
+    border-radius: 8px;
+    color: #E1A624;
+    height: 2.3rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+.list_Vehicule #export:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+.list_Vehicule  #export a{
+    /* border: #E1A624 2px solid;
+    border-radius: 8px; */
+    color: #E1A624;
+    height: 2.3rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+.list_Vehicule #export:hover a{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+
+/* =========================================== Modal vehicul  */
+
+#ajout_vehicule label{
+    color:#384454;
+
+}
+
+#ajout_vehicule input, #ajout_vehicule select{
+    font-size: 15px;
+}
+
+#ajout_vehicule input:focus , #ajout_vehicule select:focus{
+    box-shadow: none;
+    border: #E1A624 0.5px solid;
+}
+
+#ajout_vehicule #saveBtn {
+    border: #E1A624 2px solid;
+    border-top: transparent;
+    border-radius: 8px;
+    border-bottom: transparent;
+    color: #E1A624;
+    height: 2.5rem;
+    color: #fff;
+    font-weight: 450;
+    background-color: #E1A624;
+}
+
+#ajout_vehicule #saveBtn:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+#ajout_vehicule #closeBtn{
+    border: #E1A624 2px solid;
+    border-radius: 8px;
+    color: #E1A624;
+    height: 2.5rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+
+
+
+
+
+/* ******************************************************************************************************************************** Gestion des vidange*/
+
+
+.vidange #ajout{
+    border: #E1A624 2px solid;
+    border-top: transparent;
+    border-radius: 8px;
+    border-bottom: transparent;
+    color: #E1A624;
+    height: 2.3rem;
+    color: #fff;
+    font-weight: 450;
+    background-color: #E1A624;
+}
+.vidange  #ajout:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+.vidange  #export{
+    border: #E1A624 2px solid;
+    border-radius: 8px;
+    color: #E1A624;
+    height: 2.3rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+.vidange #export:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+.vidange #export a{
+    /* border: #E1A624 2px solid;
+    border-radius: 8px; */
+    color: #E1A624;
+    height: 2.3rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+.vidange #export:hover a{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+/* ======================================modal vidange */
+#ajout_vid label{
+    color:#384454;
+
+}
+
+#ajout_vid input, #ajout_vid select{
+    font-size: 15px;
+}
+
+#ajout_vid input:focus , #ajout_vid select:focus{
+    box-shadow: none;
+    border: #E1A624 0.5px solid;
+}
+
+#ajout_vid #saveBtn {
+    border: #E1A624 2px solid;
+    border-top: transparent;
+    border-radius: 8px;
+    border-bottom: transparent;
+    color: #E1A624;
+    height: 2.5rem;
+    color: #fff;
+    font-weight: 450;
+    background-color: #E1A624;
+}
+
+#ajout_vid #saveBtn:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+#ajout_vid #closeBtn{
+    border: #E1A624 2px solid;
+    border-radius: 8px;
+    color: #E1A624;
+    height: 2.5rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+
+
+
+/* ************************************************************************************************************************************* Les Vidanges */
+
+/* .vidange  */
+
+.vidange #ajout{
+    border: #E1A624 2px solid;
+    border-top: transparent;
+    border-radius: 8px;
+    border-bottom: transparent;
+    color: #E1A624;
+    height: 2.3rem;
+    color: #fff;
+    font-weight: 450;
+    background-color: #E1A624;
+}
+.vidange  #ajout:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+.vidange  #export{
+    border: #E1A624 2px solid;
+    border-radius: 8px;
+    color: #E1A624;
+    height: 2.3rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+.vidange #export:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+.vidange #export a{
+    /* border: #E1A624 2px solid;
+    border-radius: 8px; */
+    color: #E1A624;
+    height: 2.3rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+.vidange #export:hover a{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+/* ======================================modal vidange */
+#ajout_vidange label{
+    color:#384454;
+
+}
+
+#ajout_vidange input, #ajout_vidange select{
+    font-size: 15px;
+}
+
+#ajout_vidange input:focus , #ajout_vidange select:focus{
+    box-shadow: none;
+    border: #E1A624 0.5px solid;
+}
+
+#ajout_vidange #saveBtn {
+    border: #E1A624 2px solid;
+    border-top: transparent;
+    border-radius: 8px;
+    border-bottom: transparent;
+    color: #E1A624;
+    height: 2.5rem;
+    color: #fff;
+    font-weight: 450;
+    background-color: #E1A624;
+}
+
+#ajout_vidange #saveBtn:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+#ajout_vidange #closeBtn{
+    border: #E1A624 2px solid;
+    border-radius: 8px;
+    color: #E1A624;
+    height: 2.5rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+
+/*  ********************************************************************************************************************************les reparations */
+
+/* .reparation */
+
+.reparation #ajout{
+    border: #E1A624 2px solid;
+    border-top: transparent;
+    border-radius: 8px;
+    border-bottom: transparent;
+    color: #E1A624;
+    height: 2.3rem;
+    color: #fff;
+    font-weight: 450;
+    background-color: #E1A624;
+}
+.reparation  #ajout:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+.reparation  #export{
+    border: #E1A624 2px solid;
+    border-radius: 8px;
+    color: #E1A624;
+    height: 2.3rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+.reparation #export:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+.reparation #export a{
+    /* border: #E1A624 2px solid;
+    border-radius: 8px; */
+    color: #E1A624;
+    height: 2.3rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+.reparation #export:hover a{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+/* ======================================modal reparations */
+#ajout_rep label{
+    color:#384454;
+
+}
+
+#ajout_rep input, #ajout_rep select{
+    font-size: 15px;
+}
+
+#ajout_rep input:focus , #ajout_rep select:focus{
+    box-shadow: none;
+    border: #E1A624 0.5px solid;
+}
+
+#ajout_rep #saveBtn {
+    border: #E1A624 2px solid;
+    border-top: transparent;
+    border-radius: 8px;
+    border-bottom: transparent;
+    color: #E1A624;
+    height: 2.5rem;
+    color: #fff;
+    font-weight: 450;
+    background-color: #E1A624;
+}
+
+#ajout_rep #saveBtn:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+#ajout_rep #closeBtn{
+    border: #E1A624 2px solid;
+    border-radius: 8px;
+    color: #E1A624;
+    height: 2.5rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+/* ======================================modal reparations */
+#EditRep label{
+    color:#384454;
+
+}
+
+#EditRep input, #EditRep select{
+    font-size: 15px;
+}
+
+#EditRep input:focus , #EditRep select:focus{
+    box-shadow: none;
+    border: #E1A624 0.5px solid;
+}
+
+#EditRep #saveBtn {
+    border: #E1A624 2px solid;
+    border-top: transparent;
+    border-radius: 8px;
+    border-bottom: transparent;
+    color: #E1A624;
+    height: 2.5rem;
+    color: #fff;
+    font-weight: 450;
+    background-color: #E1A624;
+}
+
+#EditRep #saveBtn:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+#EditRep #closeBtn{
+    border: #E1A624 2px solid;
+    border-radius: 8px;
+    color: #E1A624;
+    height: 2.5rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+
+
+
+/*  ********************************************************************************************************************************les missions*/
+
+
+.mission #ajout{
+    border: #E1A624 2px solid;
+    border-top: transparent;
+    border-radius: 8px;
+    border-bottom: transparent;
+    color: #E1A624;
+    height: 2.3rem;
+    color: #fff;
+    font-weight: 450;
+    background-color: #E1A624;
+}
+.mission  #ajout:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+.mission  #export{
+    border: #E1A624 2px solid;
+    border-radius: 8px;
+    color: #E1A624;
+    height: 2.3rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+.mission #export:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+.mission #export a{
+    /* border: #E1A624 2px solid;
+    border-radius: 8px; */
+    color: #E1A624;
+    height: 2.3rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+.mission #export:hover a{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+/* ======================================modal mission adding */
+#AjouterMission label{
+    color:#384454;
+
+}
+
+#AjouterMission input, #AjouterMission select{
+    font-size: 15px;
+}
+
+#AjouterMission input:focus , #AjouterMission select:focus{
+    box-shadow: none;
+    border: #E1A624 0.5px solid;
+}
+
+#AjouterMission #saveBtn {
+    border: #E1A624 2px solid;
+    border-top: transparent;
+    border-radius: 8px;
+    border-bottom: transparent;
+    color: #E1A624;
+    height: 2.5rem;
+    color: #fff;
+    font-weight: 450;
+    background-color: #E1A624;
+}
+
+#AjouterMission #saveBtn:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+#AjouterMission #closeBtn{
+    border: #E1A624 2px solid;
+    border-radius: 8px;
+    color: #E1A624;
+    height: 2.5rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+/* ======================================modal reparations */
+#EditMiss label{
+    color:#384454;
+
+}
+
+#EditMiss input, #EditMiss select{
+    font-size: 15px;
+}
+
+#EditMiss input:focus , #EditMiss select:focus{
+    box-shadow: none;
+    border: #E1A624 0.5px solid;
+}
+
+#EditMiss #saveBtn {
+    border: #E1A624 2px solid;
+    border-top: transparent;
+    border-radius: 8px;
+    border-bottom: transparent;
+    color: #E1A624;
+    height: 2.5rem;
+    color: #fff;
+    font-weight: 450;
+    background-color: #E1A624;
+}
+
+#EditMiss #saveBtn:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+#EditMiss #closeBtn{
+    border: #E1A624 2px solid;
+    border-radius: 8px;
+    color: #E1A624;
+    height: 2.5rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+
+/*  ********************************************************************************************************************************les affectation */
+
+
+.affectation #ajout{
+    border: #E1A624 2px solid;
+    border-top: transparent;
+    border-radius: 8px;
+    border-bottom: transparent;
+    color: #E1A624;
+    height: 2.3rem;
+    color: #fff;
+    font-weight: 450;
+    background-color: #E1A624;
+}
+.affectation  #ajout:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+.affectation  #export{
+    border: #E1A624 2px solid;
+    border-radius: 8px;
+    color: #E1A624;
+    height: 2.3rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+.affectation #export:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+.affectation #export a{
+    /* border: #E1A624 2px solid;
+    border-radius: 8px; */
+    color: #E1A624;
+    height: 2.3rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+.affectation #export:hover a{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+/* ======================================modal affectation adding */
+#AjouterAff label{
+    color:#384454;
+
+}
+
+#AjouterAff input, #AjouterAff select{
+    font-size: 15px;
+}
+
+#AjouterAff input:focus , #AjouterAff select:focus{
+    box-shadow: none;
+    border: #E1A624 0.5px solid;
+}
+
+#AjouterAff #saveBtn {
+    border: #E1A624 2px solid;
+    border-top: transparent;
+    border-radius: 8px;
+    border-bottom: transparent;
+    color: #E1A624;
+    height: 2.5rem;
+    color: #fff;
+    font-weight: 450;
+    background-color: #E1A624;
+}
+
+#AjouterAff #saveBtn:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+#AjouterAff #closeBtn{
+    border: #E1A624 2px solid;
+    border-radius: 8px;
+    color: #E1A624;
+    height: 2.5rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+/* ======================================modal affectation */
+#EditAffec label{
+    color:#384454;
+
+}
+
+#EditAffec input, #EditAffec select{
+    font-size: 15px;
+}
+
+#EditAffec input:focus , #EditAffec select:focus{
+    box-shadow: none;
+    border: #E1A624 0.5px solid;
+}
+
+#EditAffec #saveBtn {
+    border: #E1A624 2px solid;
+    border-top: transparent;
+    border-radius: 8px;
+    border-bottom: transparent;
+    color: #E1A624;
+    height: 2.5rem;
+    color: #fff;
+    font-weight: 450;
+    background-color: #E1A624;
+}
+
+#EditAffec #saveBtn:hover{
+    background-color: #E1A624;
+    border-radius: 0.6rem;
+    color: #fff;
+    transition: 0.4s;
+
+}
+
+#EditAffec #closeBtn{
+    border: #E1A624 2px solid;
+    border-radius: 8px;
+    color: #E1A624;
+    height: 2.5rem;
+    color: #384454;
+    font-weight: 600;
+    background-color: #fff;
+}
+
+
+
+
+
+
+
